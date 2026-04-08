@@ -1,0 +1,36 @@
+---
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import '../styles/style.css'
+
+interface Props {
+  title: string
+  description?: string
+}
+
+const {
+  title,
+  description = 'We carry out installation of Vehicle Alarms, Dash Cams, most other Vehicle Security and all In Car Entertainment, as well as Sat Nav, Anti-Hijack Systems, Fleet Management and Vehicle Tracking Systems.',
+} = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <!-- Page-specific head additions -->
+    <slot name="head" />
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+    <!-- Bundled by Vite — accordion, portfolio filter, Swiper, GLightbox -->
+    <script>
+      import '../scripts/main.js'
+    </script>
+  </body>
+</html>

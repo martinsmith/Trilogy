@@ -1,6 +1,6 @@
 name: Trilogy
-type: php
-docroot: ""
+type: generic
+docroot: "dist"
 php_version: "8.4"
 webserver_type: nginx-fpm
 xdebug_enabled: false
