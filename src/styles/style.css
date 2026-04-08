@@ -48,7 +48,7 @@ q::before, q::after {
 body {
   background: #fff;
   font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 11px;
   line-height: 18px;
 }
 
@@ -63,6 +63,11 @@ hr {
   color: #eaeaea;
   background-color: #eaeaea;
   height: 1px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  line-height: 1.2;
 }
 
 h6 {
@@ -288,6 +293,7 @@ blockquote {
   padding-bottom: 15px;
   margin-left: 30px;
   background: url(/images/featured-bg.png) no-repeat;
+  font-size: 11px;
   line-height: 17px;
 }
 
@@ -352,10 +358,6 @@ blockquote {
   line-height: 16px;
 }
 
-#content_columns .column_right .block_posts {
-  margin-bottom: 0;
-  margin-top: 0;
-}
 
 #content_columns img { float: left; }
 
@@ -369,7 +371,6 @@ blockquote {
 
 #content_columns h6 {
   font-size: 24px;
-  font-weight: 300;
   text-transform: uppercase;
   padding-bottom: 5px;
   margin-bottom: 18px;
@@ -421,6 +422,7 @@ blockquote {
   opacity: 0;
   display: block;
   width: 100%;
+  font-size: 11px;
   line-height: 18px;
   margin-bottom: 5px;
   transition: max-height 0.35s ease, opacity 0.25s ease;
