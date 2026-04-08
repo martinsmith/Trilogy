@@ -75,11 +75,6 @@ h6 {
   font-size: 24px;
   margin-bottom: 10px;
 }
-
-.clear {
-  clear: both;
-}
-
 a {
   text-decoration: none;
   color: #3399dd;
@@ -87,20 +82,6 @@ a {
 
 a:hover {
   text-decoration: underline;
-}
-
-img {
-  border: 0;
-}
-
-.leftalign {
-  float: left;
-  margin-right: 10px;
-}
-
-.rightalign {
-  float: right;
-  margin-left: 10px;
 }
 
 img.highlight_image {
@@ -804,15 +785,11 @@ blockquote {
   padding: 0;
 }
 
-.full_width { width: 100%; }
-
-.one_fourth, .one_third, .half, .two_third {
+.one_third, .half {
   float: left;
   margin: 0;
 }
 
-.one_fourth  { width: 41%; margin-right: 5%; }
 .one_third   { width: 30%; margin-right: 5%; }
 .half        { width: 45%; margin-right: 5%; }
-.two_third   { width: 65%; margin-right: 5%; }
 .last        { margin-right: 0; }
