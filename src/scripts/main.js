@@ -86,8 +86,31 @@ function initLightbox() {
   })
 }
 
+// ─── Mobile menu toggle ─────────────────────────────────────────────────────
+function initMobileMenu() {
+  const toggle = document.getElementById('menu-toggle')
+  const nav = document.getElementById('myslidemenu')
+  if (!toggle || !nav) return
+
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('is-open')
+    toggle.classList.toggle('is-open', open)
+    toggle.setAttribute('aria-expanded', String(open))
+  })
+
+  // Close menu when clicking a link (mobile)
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('is-open')
+      toggle.classList.remove('is-open')
+      toggle.setAttribute('aria-expanded', 'false')
+    })
+  })
+}
+
 // ─── Boot ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+  initMobileMenu()
   initAccordion()
   initPortfolioFilter()
   initSlider()

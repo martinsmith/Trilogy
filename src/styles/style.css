@@ -39,6 +39,7 @@ body {
 .wrapper {
   max-width: 940px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
 hr {
@@ -153,8 +154,11 @@ blockquote {
 
 /* Down-arrow on items that have a submenu */
 .jqueryslidemenu ul li:has(ul) > a::after {
-  content: ' ▾';
+  content: '\f0d7';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
   font-size: 10px;
+  margin-left: 5px;
 }
 
 /* Dropdown — hidden by default, shown on hover/focus */
@@ -193,22 +197,27 @@ blockquote {
 }
 
 #header ul.social li {
-  width: 50px;
-  height: 50px;
   display: inline-block;
-  border-radius: 50%;
 }
 
 #header ul.social li a {
-  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
   background-color: #000;
-  display: block;
+  border: 2px solid #fff;
   border-radius: 50%;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
 }
 
-#header ul.social li a:hover { background-color: #666; }
-
-#header ul.social li img { width: 100%; }
+#header ul.social li a:hover {
+  background-color: #666;
+  color: #fff;
+}
 
 
 /* ============================================================
@@ -231,29 +240,41 @@ blockquote {
 }
 
 #breadcrumbs li {
-  background: url(/images/light-arrow-right.png) no-repeat right center;
   padding-left: 5px;
   padding-right: 15px;
+  position: relative;
 }
 
-#breadcrumbs li.current_crumb { background: none; }
+#breadcrumbs li::after {
+  content: '\f054';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 8px;
+  color: #999;
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#breadcrumbs li.current_crumb::after { display: none; }
 
 /* ============================================================
    FEATURED TEXT AREA
    ============================================================ */
 #featured ul {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 10px;
   background: url(/images/featured-background.png) no-repeat;
-  height: 185px;
-  padding: 16px;
-  padding-top: 25px;
+  background-size: 100% 100%;
+  padding: 25px 16px 16px;
 }
 
 #featured li {
   display: flex;
   gap: 10px;
-  width: 270px;
+  flex: 1 1 200px;
   padding-bottom: 15px;
   margin-left: 30px;
   background: url(/images/featured-bg.png) no-repeat;
@@ -261,9 +282,14 @@ blockquote {
   line-height: 17px;
 }
 
-#featured li img {
+#featured li .feature_icon {
   align-self: flex-start;
   margin-top: 5px;
+  font-size: 32px;
+  color: #999;
+  flex-shrink: 0;
+  width: 40px;
+  text-align: center;
 }
 
 #featured .featured_title {
@@ -304,6 +330,7 @@ blockquote {
   gap: 45px;
   color: #222;
   padding-left: 30px;
+  padding-top: 30px;
   padding-bottom: 50px;
 }
 
@@ -335,20 +362,36 @@ blockquote {
   list-style-type: none;
   padding: 0;
   margin: 0 0 30px;
-  width: 265px;
+  max-width: 265px;
+  width: 100%;
 }
 
 #accordion li {
   cursor: pointer;
   margin: 0 0 8px;
-  background: url(/images/note.png) no-repeat;
   position: relative;
+  padding-left: 22px;
+}
+
+#accordion li::before {
+  content: '\f054';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 10px;
+  color: #999;
+  position: absolute;
+  left: 2px;
+  top: 3px;
+  transition: transform 0.3s ease;
+}
+
+#accordion li.active::before {
+  content: '\f078';
+  color: #3399dd;
 }
 
 #accordion li.active > a {
   padding-bottom: 5px;
-  margin-left: 30px;
-  background: url(/images/arrow-down.png) no-repeat right 5px;
   color: #3399dd;
   line-height: 22px;
   border-bottom: 1px dotted #ddd;
@@ -374,11 +417,9 @@ blockquote {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 11px;
-  margin-left: 30px;
   padding-bottom: 5px;
   color: #333;
   display: block;
-  background: url(/images/arrow-right.png) no-repeat right 5px;
   line-height: 22px;
   border-bottom: 1px dotted #ddd;
 }
@@ -392,22 +433,24 @@ blockquote {
   background-image: url(/images/slider-bg.png);
   background-repeat: no-repeat;
   background-position: 50% 50%;
+  background-size: 100% 100%;
   position: relative;
-  height: 424px;
-  width: 940px;
+  aspect-ratio: 940 / 424;
+  width: 100%;
 }
 
 #slider {
   position: absolute;
-  top: 18px;
-  width: 940px;
-  height: 380px;
+  top: 4.25%;
+  left: 0;
+  right: 0;
+  bottom: 4.25%;
   overflow: hidden;
 }
 
 #slider .swiper-slide img {
-  width: 940px;
-  height: 380px;
+  width: 100%;
+  height: 100%;
   display: block;
   object-fit: cover;
 }
@@ -626,10 +669,22 @@ blockquote {
 }
 
 .block ul li a {
-  background: url(/images/sidebar-arrow.png) no-repeat left 10px;
   padding: 6px 6px 6px 13px;
   color: #666;
   display: block;
+  position: relative;
+}
+
+.block ul li a::before {
+  content: '\f054';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 7px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
 }
 
 .block ul li a:hover { color: #222; text-decoration: none; }
@@ -638,6 +693,12 @@ blockquote {
   display: flex;
   align-items: flex-start;
   gap: 10px;
+}
+
+.info-with-icon .fas {
+  font-size: 24px;
+  color: #999;
+  margin-top: 2px;
 }
 
 .block_posts ul li {
@@ -691,21 +752,27 @@ blockquote {
 }
 
 .footer-social ul li {
-  width: 40px;
-  height: 40px;
   display: inline-block;
-  border-radius: 50%;
 }
 
 .footer-social ul li a {
-  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
   background-color: #000;
-  display: block;
+  border: 2px solid #fff;
   border-radius: 50%;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
 }
 
-.footer-social ul li a:hover { background-color: #666; }
-.footer-social ul li img { width: 100%; }
+.footer-social ul li a:hover {
+  background-color: #666;
+  color: #fff;
+}
 
 .footer-copy {
   color: #999;
@@ -714,10 +781,220 @@ blockquote {
 }
 
 /* ============================================================
+   MOBILE MENU TOGGLE
+   ============================================================ */
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: auto;
+  z-index: 1001;
+}
+
+#menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #999;
+  margin: 5px 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#menu-toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+#menu-toggle.is-open span:nth-child(2) { opacity: 0; }
+#menu-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ============================================================
    COLUMNS
    ============================================================ */
 .column_holder {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET (≤ 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+
+  /* Header: show hamburger, hide desktop nav */
+  #header {
+    height: auto;
+    min-height: 70px;
+  }
+
+  #header > .wrapper {
+    flex-wrap: wrap;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #logo img { height: 50px; width: auto; }
+
+  #menu-toggle { display: block; }
+
+  #header ul.social { display: none; }
+
+  /* Mobile nav — full-width slide-down */
+  #myslidemenu {
+    display: none;
+    width: 100%;
+    margin-left: 0;
+    order: 3;
+  }
+
+  #myslidemenu.is-open { display: block; }
+
+  .jqueryslidemenu { background: none; }
+
+  .jqueryslidemenu > ul {
+    flex-direction: column;
+  }
+
+  .jqueryslidemenu ul li {
+    background: none;
+    line-height: 1.4;
+    border-bottom: 1px solid #333;
+  }
+
+  .jqueryslidemenu ul li a {
+    padding: 12px 15px;
+  }
+
+  .jqueryslidemenu ul li:has(ul) > a::after {
+    content: '\f0d7';
+  }
+
+  .jqueryslidemenu ul li ul {
+    position: static;
+    display: block;
+    margin-top: 0;
+  }
+
+  .jqueryslidemenu ul li ul li a {
+    width: 100%;
+    padding-left: 30px;
+  }
+
+  /* Breadcrumbs */
+  #breadcrumbs {
+    height: auto;
+    padding: 10px 0;
+  }
+
+  #breadcrumbs .wrapper {
+    flex-wrap: wrap;
+  }
+
+  /* Slider */
+  #sliderwrapper {
+    margin-top: 0;
+  }
+
+  /* Featured section */
+  #featured ul {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  #featured li {
+    margin-left: 0;
+    background: none;
+  }
+
+  /* Home 3-column → 1 column */
+  #content_columns {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-left: 0;
+  }
+
+  #accordion { max-width: 100%; }
+
+  /* Inner grid → single column */
+  .inner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Sidebar: hide decorative background on mobile */
+  #sidebar {
+    background: #f9f9f9;
+    padding: 20px;
+  }
+
+  #sidebar::before,
+  #sidebar::after {
+    display: none;
+  }
+
+  /* Portfolio grid → 2 columns */
+  #portfolio {
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 0;
+  }
+
+  .portfolio-page h1 {
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 28px;
+    color: #444;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  /* Footer → stack */
+  #footer_end > .wrapper {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer-copy { margin-left: 0; }
+
+  /* Contact columns → stack */
+  .column_holder {
+    grid-template-columns: 1fr;
+  }
+
+  /* Text with image → stack */
+  .text-with-image {
+    flex-direction: column;
+  }
+
+  .text-with-image img {
+    order: 0;
+    max-width: 200px;
+  }
+
+  /* Portfolio filter scroll */
+  #portfolio_selector {
+    overflow-x: auto;
+    white-space: nowrap;
+    text-align: left;
+    padding: 7px 10px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE (≤ 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+
+  body { font-size: 12px; line-height: 20px; }
+
+  .inner-grid h1 {
+    font-size: 26px;
+  }
+
+  /* Portfolio → 1 column */
+  #portfolio {
+    grid-template-columns: 1fr;
+  }
+
+  /* Featured icons smaller */
+  #featured li .feature_icon { font-size: 24px; }
 }
