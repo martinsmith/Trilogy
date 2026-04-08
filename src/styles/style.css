@@ -1,10 +1,6 @@
 /* ============================================================
    RESET
    ============================================================ */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, address, cite, code,
@@ -70,6 +66,7 @@ hr {
 }
 
 h6 {
+  font-family: 'Saira Condensed', sans-serif;
   font-size: 24px;
   margin-bottom: 10px;
 }
@@ -372,6 +369,7 @@ blockquote {
 
 #content_columns h6 {
   font-size: 24px;
+  font-weight: 300;
   text-transform: uppercase;
   padding-bottom: 5px;
   margin-bottom: 18px;
@@ -429,6 +427,7 @@ blockquote {
 #accordion a {
   text-transform: uppercase;
   font-weight: bold;
+  font-size: 11px;
   margin-left: 30px;
   padding-bottom: 5px;
   color: #333;
@@ -513,6 +512,7 @@ blockquote {
 }
 
 #inner_content h1 {
+  font-family: 'Saira Condensed', sans-serif;
   font-size: 34px;
   color: #444;
   padding-bottom: 10px;
@@ -520,6 +520,7 @@ blockquote {
 }
 
 #inner_content h2 {
+  font-family: 'Saira Condensed', sans-serif;
   color: #666;
   font-size: 24px;
   padding-top: 10px;
