@@ -19,38 +19,31 @@ const hasSidebarSlot = Astro.slots.has('sidebar')
 
 <Base title={title} description={description}>
 
-  <div id="content">
+  <div id="breadcrumbs">
+    <div class="wrapper">
+      <p>You are here: </p>
+      <ul>
+        {breadcrumbs.map((crumb, i) => (
+          <li class={i === breadcrumbs.length - 1 ? 'current_crumb' : ''}>
+            {crumb.href
+              ? <a href={crumb.href}>{crumb.label}</a>
+              : crumb.label}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
 
-    <div id="breadcrumbs">
-      <div class="wrapper">
-        <p>You are here: </p>
-        <ul>
-          {breadcrumbs.map((crumb, i) => (
-            <li class={i === breadcrumbs.length - 1 ? 'current_crumb' : ''}>
-              {crumb.href
-                ? <a href={crumb.href}>{crumb.label}</a>
-                : crumb.label}
-            </li>
-          ))}
-        </ul>
-      </div>
+  <div class="wrapper inner-grid">
+
+    <div id="main_content">
+      <slot />
     </div>
 
-    <div id="inner_content">
-      <div class="wrapper">
-
-        <div id="main_content">
-          <slot />
-        </div>
-
-        <div id="sidebar">
-          <span id="sidebar_top"></span>
-          <span id="sidebar_bottom"></span>
-          {hasSidebarSlot ? <slot name="sidebar" /> : <Sidebar />}
-        </div>
-
-      </div>
+    <div id="sidebar">
+      {hasSidebarSlot ? <slot name="sidebar" /> : <Sidebar />}
     </div>
 
   </div>
+
 </Base>
