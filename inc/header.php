@@ -1,0 +1,41 @@
+<div id="header">
+	<div class="wrapper">
+    	
+		<!--LOGO-->
+		<div id="logo">
+        	<a href="/"><img src="/files/trilogy-in-car.png" alt="Trilogy - Vehicle Security and audio installation" /></a>
+        </div><!--End ##logo-->
+        
+        
+		<!--TOP MENU-->
+		<div id="myslidemenu" class="jqueryslidemenu">
+			<ul>
+                <li><a href="/">Home</a></li>
+                   <li><a href="/about-us">About</a></li>
+                   <li><a href="/what-we-do">What we do</a>
+						<ul>
+						    <li><a href="/car-audio-and-multimedia">Car audio and Multimedia</a></li>
+						    <li><a href="/vehicle-security-installation">Vehicle Security Installation</a></li>
+						    <li><a href="/dash-cams-and-vehicle-cctv">Dash Cams and Vehicle CCTV</a></li>
+						    <li><a href="/sat-nav-installation">Satellite Navigation Installation</a></li>
+							<li><a href="/parking-aids">Parking Aids</a></li>
+						    <li><a href="/fleet-management-and-vehicle-tracking">Fleet Management / Vehicle Tracking</a></li>
+						    <li><a href="/anti-hijack-key-theft-protection">Anti hijack and key theft protection</a></li>
+						    <li><a href="/plant-security-and-tracking">Plant Security and Tracking</a></li>
+						    <li><a href="/bespoke-services">Bespoke Services</a></li>
+						</ul>
+					</li>
+                   <li><a href="/portfolio">Portfolio</a></li>
+                   <!--<li><a href="/testimonials">Testimonials</a></li>-->
+                   <li><a href="/contact-us">Contact</a></li>
+               </ul>
+		</div>
+		<!--End #myslidemenu-->
+
+			<ul class="social">
+				<li><a href="https://www.facebook.com/trilogyincar/"><img src="/files/facebook.svg" alt="Like us on Facebook" /></a></li>
+			<!-- <li><a href="#"><img src="/files/twitter.svg" alt="Follow us on Twitter" /></a></li> -->
+			</ul>         
+
+    </div><!--.wrapper header-->
+</div>
