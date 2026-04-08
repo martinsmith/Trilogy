@@ -416,12 +416,20 @@ blockquote {
 }
 
 #accordion li div {
-  display: none;
-  clear: both;
-  float: left;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  display: block;
+  width: 100%;
   line-height: 18px;
-  margin-top: 7px;
   margin-bottom: 5px;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+#accordion li.active div {
+  max-height: 300px;
+  opacity: 1;
+  margin-top: 7px;
 }
 
 #accordion a {

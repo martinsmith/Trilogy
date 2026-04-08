@@ -13,37 +13,19 @@ function initAccordion() {
 
   const items = Array.from(list.querySelectorAll('li'))
 
-  // Hide all content divs initially
-  items.forEach(item => {
-    const div = item.querySelector('div')
-    if (div) div.style.display = 'none'
-  })
-
   // Open the item marked current (or first item as fallback)
   const initial = list.querySelector('li.current') || items[0]
-  if (initial) {
-    initial.classList.add('active')
-    const div = initial.querySelector('div')
-    if (div) div.style.display = 'block'
-  }
+  if (initial) initial.classList.add('active')
 
-  // Click handlers
+  // Click handlers — CSS transitions handle the open/close animation
   list.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault()
       const li = link.closest('li')
 
-      // Close all
-      items.forEach(item => {
-        item.classList.remove('active', 'current')
-        const d = item.querySelector('div')
-        if (d) d.style.display = 'none'
-      })
-
-      // Open clicked
+      // Close all, then open the clicked one
+      items.forEach(item => item.classList.remove('active', 'current'))
       li.classList.add('active')
-      const div = li.querySelector('div')
-      if (div) div.style.display = 'block'
     })
   })
 }
